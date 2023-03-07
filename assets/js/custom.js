@@ -241,14 +241,14 @@ function toggleTheme() {
 	if (localStorage.getItem('dilx_theme') === 'theme-dark') {
 		setTheme('theme-light');
 	} else {
-		setTheme('theme-dark');
+		setTheme('theme-light');
 	}
 }
 
 // Immediately invoked function to set the theme on initial load
 (function () {
 	if (localStorage.getItem('dilx_theme') === 'theme-dark') {
-		setTheme('theme-dark');
+		setTheme('theme-light');
 		document.getElementById('slider').checked = false;
 	} else {
 		setTheme('theme-light');
