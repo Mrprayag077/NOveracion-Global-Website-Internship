@@ -1323,7 +1323,7 @@
                     <div class="card fade-bottom"
                         style="background-color: rgba(255, 255, 255, 0.1) ; box-shadow: 0px 0px 20px 0px #dddddd42;">
                         <a href="#section2"><img src="assets/img/pp99o.jpg" class=" hi img-fluid img-popup" id="myImg"
-                                alt="Responsive image"></a>
+                                alt="A white paper by Noveracion Global"></a>
 
 
                     </div>
@@ -1482,13 +1482,16 @@
                     <div class="col-sm col-lg">
                         <div class="form-group">
                             <label>
-                                <i class='bx bx-phone-call'></i>
+                                <!-- <i class='bx bx-phone-call'></i> -->
+                                <i class="material-symbols-outlined">
+                                    badge
+                                </i>
                             </label>
                             <!-- <input type="text" name="ContactNumber" id="ContactNumber" placeholder="Phone" required
                                 data-error="Please enter your number" class="form-control"> -->
 
-                            <input type="number" name="Phone" class="form-control" placeholder="Your Contact Number *"
-                                value="" required="" />
+                            <input type="number" name="Designation" class="form-control" placeholder="Your  Designation"
+                                value="" />
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -1506,8 +1509,8 @@
                             <!-- <input type="text" name="ContactNumber" id="ContactNumber" placeholder="Phone" required
                                 data-error="Please enter your number" class="form-control"> -->
 
-                            <input type="text" name="Company" class="form-control" placeholder="Your Company Name *"
-                                value="" required="" />
+                            <input type="text" name="Company" class="form-control" placeholder="Your Company Name"
+                                value="" />
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -1794,11 +1797,11 @@
         function validateForm() {
             var name = document.forms["google-sheet"]["Name"].value;
             var email = document.forms["google-sheet"]["Email"].value;
-            var phone = document.forms["google-sheet"]["Phone"].value;
 
 
-            if (name == "" || email == "" || phone == "") {
-                alert("Please fill in all required fields.");
+
+            if (name == "" || email == "") {
+                alert("Please fill in all Required fields.");
                 return false;
 
 
