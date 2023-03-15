@@ -1442,6 +1442,11 @@
                 display: none;
             }
         }
+
+
+        #referred_domain {
+            display: none;
+        }
     </style>
     <div class="contact-area ptb-100 reveal fade-bottom" id="section2">
         <div class="container">
@@ -1511,6 +1516,10 @@
 
                             <input type="text" name="Company" class="form-control" placeholder="Your Company Name"
                                 value="" />
+
+                            <input type="text" name="Referred_Domain" class="form-control"
+                                placeholder="Your Company Name" value="" id="referred_domain" />
+
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -2051,6 +2060,14 @@
 
 
     <script>
+
+        // Get the referring page URL
+        var referrer = document.referrer;
+
+        document.getElementById('referred_domain').value = referrer;
+
+        console.log('referred-domain==' + referrer);
+
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwQGEFC09yQjSzebFvrjARNVyxqXmc5UVznU8GwPDUu6-q3IbRPxD-jjgI5kCR7-E9k/exec'
         const form = document.forms['google-sheet']
 
