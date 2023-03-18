@@ -350,38 +350,37 @@
                     name="google-sheet">
 
 
-                    <label for="First-Name" class="field-label-24">First
-                        Name*</label>
+                    <label for="First-Name" class="field-label-24">Name *</label>
 
 
                     <input type="text" class="text-field-2 w-input" name="Name" maxlength="256" placeholder=""
                         id="First-Name" required="">
 
 
-                    <label for="Last-Name" class="field-label-24">Last Name*</label>
+                    <label for="Last-Name" class="field-label-24">Email *</label>
 
                     <input type="text" class="text-field-3 w-input" maxlength="256" name="Email" placeholder=""
                         id="Last-Name" required="">
 
 
-                    <label for="Email-3" class="field-label-24">Email Address*</label>
+                    <label for="Email-3" class="field-label-24">Designation *</label>
 
 
                     <input type="text" class="text-field-3 w-input" maxlength="256" name="Designation" placeholder=""
-                        id="Email-3" required="">
+                        id="Email-3">
 
-                    <label for="Job-Title" class="field-label-24">Job
-                        Title*</label>
+                    <label for="Job-Title" class="field-label-24">Company Name *</label>
 
                     <input type="text" class="text-field-3 w-input" maxlength="256" name="Company" placeholder=""
-                        id="Job-Title" required="">
+                        id="Job-Title">
 
 
-                    <label for="Comapny-Name" class="field-label-24">Company
-                        Name*</label>
+                    <label for="Comapny-Name" class="field-label-24">Referred Domain *</label>
 
                     <input type="text" class="text-field-3 w-input" maxlength="256" name="Referred_Domain"
-                        placeholder="" required="" id="referred_domain">
+                        placeholder="" required="" id="referred_domain" readonly>
+
+
                     <a href="https://drive.google.com/uc?export=download&id=1AOyctUfJVISUA0Q0yVEWZpg0jhiQ_h3T"
                         id="download-link">
 
@@ -468,17 +467,23 @@
             var email = document.forms["google-sheet"]["Email"].value;
 
 
-            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                .then(response => {
-                    console.log('Data saved to Google Sheets!');
-                    document.getElementById("popup1").style.display = "block";
-                    setTimeout(downloadFile, 2000);
-                    console.log('validateForm')
-                })
-                .catch(error => console.error('Error!', error.message));
+            if (name == "" || email == "") {
+                alert("Please fill in all Required fields.");
+                return false;
 
 
+            } else {
+                fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                    .then(response => {
+                        console.log('Data saved to Google Sheets!');
+                        document.getElementById("popup1").style.display = "block";
+                        setTimeout(downloadFile, 2000);
+                        console.log('validateForm')
+                    })
+                    .catch(error => console.error('Error!', error.message));
 
+
+            }
 
         }
 
@@ -486,10 +491,15 @@
             document.getElementById("download-link").click();
             console.log('doefiek');
 
+            window.open("https://drive.google.com/file/d/1AOyctUfJVISUA0Q0yVEWZpg0jhiQ_h3T/view?usp=sharing", "_blank");
+
         }
 
+        function reloadd() {
 
+            location.reload();
 
+        }
 
 
     </script>
