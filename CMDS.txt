@@ -11,3 +11,9 @@ git push -u origin main || git push origin master
 error
 git remote -v 
 git fetch origin main
+
+COMMUNITY
+https://www.canva.com/design/DAFc6BVdHTM/gvNaqg6sb0OkDwYn1f8tYA/edit?utm_content=DAFc6BVdHTM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+HAND BAND
+https://www.canva.com/design/DAFeHth6zZo/y4DYJD2FK64pYMQVqOrKbg/edit?utm_content=DAFeHth6zZo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
