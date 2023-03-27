@@ -1,0 +1,13 @@
+git init
+git add . 
+git commit -m "first commit"
+git status
+git log
+git branch -M main
+git remote add origin https://github.com/Mrprayag077/SIG-ACM-SESSION1.git
+git push -u origin main || git push origin master
+
+
+error
+git remote -v 
+git fetch origin main
