@@ -377,7 +377,7 @@
                     GLOBAL</span></a>
         </div>
 
-
+        <!--  hcsjbj -->
 
         <div data-w-id="0080e219-2c7b-6e08-384a-b2e656cb196e" style="opacity:0" class="ey_upekkha-sec1 wf-section">
             <div class="div-block-478">
@@ -710,12 +710,41 @@
                         #referred_domain {
                             display: none;
                         }
+
+
+                        #timee {
+                            display: none;
+                        }
+
+
+                        #state_city {
+                            display: none;
+                        }
+
+
+
+                        #latlong {
+                            display: none;
+                        }
                     </style>
 
                     <label for="Comapny-Name" class="field-label-24" id="domainn">Referred Domain *</label>
 
                     <input type="text" class="text-field-3 w-input" maxlength="256" name="Referred_Domain"
                         placeholder="" required="" id="referred_domain" readonly>
+
+
+
+                    <input type="text" class="text-field-3 w-input" maxlength="256" placeholder="" required=""
+                        name="state_city" id="state_city" readonly>
+
+
+                    <input type="text" class="text-field-3 w-input" maxlength="256" placeholder="" required=""
+                        name="timestamp" id="timee" readonly>
+
+                    <input type="text" class="text-field-3 w-input" maxlength="256" placeholder="" required=""
+                        name="latlong" id="latlong" readonly>
+
 
 
                     <a href="https://drive.google.com/uc?export=download&id=1AOyctUfJVISUA0Q0yVEWZpg0jhiQ_h3T"
@@ -760,6 +789,56 @@
 
 
     <script>
+
+
+
+        // Get user's location and update search history
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+        } else {
+            alert('Geolocation is not supported by this browser.');
+        }
+
+        function successFunction(position) {
+            const lat = position.coords.latitude;
+            const long = position.coords.longitude;
+
+            document.getElementById('latlong').value = lat + ',' + long;
+
+
+            // Call a third-party reverse geocoding API to get the user's city and state
+            fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${long}&localityLanguage=en`)
+                .then(response => response.json())
+                .then(data => {
+                    const city = data.city;
+                    const state = data.principalSubdivision;
+                    const timestamp = new Date().toLocaleString();
+
+                    var referrer = document.referrer;
+
+
+                    document.getElementById('timee').value = timestamp;
+                    document.getElementById('state_city').value = city + ',' + state;
+
+                    console.log(`You are located in ${city}, ${state}.`);
+                    console.log(`Timestamp:`, timestamp);
+
+
+                    // Update search history in localStorage
+                    let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+                    const search = { city, state, timestamp };
+                    searchHistory.unshift(search);
+                    localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+                });
+        }
+
+        function errorFunction() {
+            alert('Unable to retrieve your location.');
+        }
+
+
+
+
 
         var referrer = document.referrer;
 
