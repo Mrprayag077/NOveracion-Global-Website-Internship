@@ -1,0 +1,6 @@
+-------------------------------------------------------------------------------------
+Version 1.0
+build by prayag: mrprayag@gmail.com
+on 5 MAY 2023 1:09 PM
+Description: resolved the image resolution isssue of case study page.
+-------------------------------------------------------------------------------------
